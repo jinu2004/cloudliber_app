@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="come.jinu.cloudlibre">
-<uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CloudLibre"
         tools:targetApi="33">
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false" />
         <activity
             android:name=".ItemPage"
             android:exported="false" />

@@ -42,23 +42,23 @@ class MainActivity : AppCompatActivity() {
 		window.navigationBarColor = ContextCompat.getColor(this, R.color.black)
 
 		roomViewModel = ViewModelProvider(this)[RoomViewModel::class.java]
-		cards(binding.card1Heading, binding.card1Recycler, "New release", "new")
-		cards(binding.card2Heading, binding.card2Recycler, "History", "his")
-
-		insertData("new")
-		insertData("his")
-		insertData("fav")
-		insertData("for")
+//		cards(binding.card1Heading, binding.card1Recycler, "New release", "new")
+//		cards(binding.card2Heading, binding.card2Recycler, "History", "his")
+//
+//		insertData("new")
+//		insertData("his")
+//		insertData("fav")
+//		insertData("for")
 
 
 		val imageList = ArrayList<SlideModel>()
-		imageList.add(SlideModel("https://cdn.pixabay.com/photo/2023/06/22/15/17/cat-8081701_1280.jpg",
+		imageList.add(SlideModel("https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029_1280.jpg",
 			""))
-		imageList.add(SlideModel("https://cdn.pixabay.com/photo/2023/06/21/19/21/seiser-alm-8080073_1280.jpg",
+		imageList.add(SlideModel("https://cdn.pixabay.com/photo/2016/09/10/17/18/book-1659717_640.jpg",
 			""))
-		imageList.add(SlideModel("https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547_1280.jpg",
+		imageList.add(SlideModel("https://cdn.pixabay.com/photo/2019/05/14/21/50/storytelling-4203628_640.jpg",
 			""))
-		imageList.add(SlideModel("https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_1280.jpg",
+		imageList.add(SlideModel("https://cdn.pixabay.com/photo/2016/08/24/16/20/books-1617327_640.jpg",
 			""))
 		binding.ads.setImageList(imageList, scaleType = ScaleTypes.FIT)
 		binding.ads.setSlideAnimation(AnimationTypes.ZOOM_OUT)
@@ -92,8 +92,8 @@ class MainActivity : AppCompatActivity() {
 	@SuppressLint("SetTextI18n")
 	override fun onResume() {
 		super.onResume()
-		apiCards(binding.card3Heading,binding.card3Recycler)
-		apiCardsNon(binding.card4Heading,binding.card4Recycler)
+		apiCards(binding.card1Heading,binding.card1Recycler)
+		apiCardsNon(binding.card2Heading,binding.card2Recycler)
 	}
 
 	@Suppress("DEPRECATION")
@@ -157,7 +157,7 @@ class MainActivity : AppCompatActivity() {
 						Log.e("msg","${data.title}")
 					}
 				})
-				heading.text = response.body()!![0].subgenre
+				heading.text = "Fiction"
 			}
 			else Log.e("msg","false")
 
@@ -192,7 +192,7 @@ class MainActivity : AppCompatActivity() {
 					}
 
 				})
-				heading.text = response.body()!![0].subgenre
+				heading.text = "Non_fiction"
 			}
 			else Log.e("msg","false")
 

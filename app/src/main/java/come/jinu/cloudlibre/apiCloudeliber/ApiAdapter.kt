@@ -1,11 +1,14 @@
 package come.jinu.cloudlibre.apiCloudeliber
 
+import android.annotation.SuppressLint
+import android.app.Application
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import come.jinu.cloudlibre.R
 import come.jinu.cloudlibre.databinding.RecyclerviewOfBooksBinding
 
@@ -36,10 +39,10 @@ class ApiAdapter:RecyclerView.Adapter<ApiAdapter.ApiClassViewHolder>() {
 		val view = RecyclerviewOfBooksBinding.inflate(LayoutInflater.from(parent.context))
 		return ApiClassViewHolder(view)
 	}
+	@SuppressLint("CheckResult")
 	override fun onBindViewHolder(holder: ApiClassViewHolder, position: Int) {
 		val datas = data[position]
 		holder.binding.apply {
-			coverPageImg.setImageResource(R.drawable.bookshop_1)
 			titleOfBookRecycler.text = datas.title
 			price.text = datas.price
 			stareRateRecycler.text = datas.rating
@@ -49,9 +52,13 @@ class ApiAdapter:RecyclerView.Adapter<ApiAdapter.ApiClassViewHolder>() {
 				onClickListener!!.onClick(position,datas)
 			}
 		}
+		Glide.with(holder.binding.root.context)
+			.load(datas.coverpage)
+			.into(holder.binding.coverPageImg)
 	}
 
 	override fun getItemCount(): Int {
+
 		return data.size
 	}
 	fun setOnClickListener(onClickListener: OnClickListener) {

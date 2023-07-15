@@ -8,6 +8,26 @@
     app:layout_scrollEffect="none"
     app:layout_wrapBehaviorInParent="horizontal_only"
     tools:context=".ItemPage">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:elevation="1dp"
+    android:id="@+id/animation"
+    android:background="@color/black"
+    android:layout_height="match_parent">
+    <com.airbnb.lottie.LottieAnimationView
+
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:elevation="10dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/app_installation" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -59,6 +79,7 @@
 
                         <!--suppress AndroidUnknownAttribute -->
                         <ImageView
+                            android:id="@+id/image_cover"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
@@ -342,7 +363,7 @@
                         tools:ignore="ContentDescription" />
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/star_rate_text_big"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="60dp"
@@ -361,20 +382,21 @@
                         android:layout_marginTop="30dp"
                         android:text="1500"
                         android:textColor="@color/white"
-                        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+                        app:layout_constraintBottom_toBottomOf="@+id/star_rate_text_big"
                         app:layout_constraintEnd_toEndOf="@+id/star_5"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/star_1"
-                        app:layout_constraintTop_toTopOf="@+id/textView4"
+                        app:layout_constraintTop_toTopOf="@+id/star_rate_text_big"
                         tools:ignore="HardcodedText" />
 
                     <ImageView
                         android:id="@+id/star_1"
                         android:layout_width="15dp"
+                        app:tint="#B0FAFAFA"
                         android:layout_height="15dp"
                         android:layout_marginStart="96dp"
                         app:layout_constraintBottom_toTopOf="@+id/textView7"
-                        app:layout_constraintStart_toStartOf="@+id/textView4"
+                        app:layout_constraintStart_toStartOf="@+id/star_rate_text_big"
                         app:srcCompat="@drawable/ic_baseline_star_24"
                         tools:ignore="ContentDescription" />
 
@@ -382,7 +404,7 @@
                         android:id="@+id/star_2"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-
+                        app:tint="#B0FAFAFA"
                         app:layout_constraintBottom_toTopOf="@+id/textView7"
                         app:layout_constraintStart_toEndOf="@+id/star_1"
                         app:srcCompat="@drawable/ic_baseline_star_24"
@@ -392,7 +414,7 @@
                         android:id="@+id/star_3"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-
+                        app:tint="#B0FAFAFA"
                         app:layout_constraintBottom_toBottomOf="@+id/star_1"
                         app:layout_constraintStart_toEndOf="@+id/star_2"
                         app:srcCompat="@drawable/ic_baseline_star_24"
@@ -402,6 +424,7 @@
                         android:id="@+id/star_4"
                         android:layout_width="15dp"
                         android:layout_height="15dp"
+                        app:tint="#B0FAFAFA"
                         app:layout_constraintBottom_toBottomOf="@+id/star_2"
                         app:layout_constraintStart_toEndOf="@+id/star_3"
                         app:srcCompat="@drawable/ic_baseline_star_24"
@@ -424,7 +447,7 @@
                         android:layout_marginTop="20dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView4"
+                        app:layout_constraintTop_toBottomOf="@+id/star_rate_text_big"
                         tools:itemCount="3"
                         tools:listitem="@layout/review_ayout" />
 
