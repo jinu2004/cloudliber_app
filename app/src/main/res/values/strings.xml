@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CloudLibre</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello">Computer science is the study of computation, information, and automation.
+        Computer science spans theoretical disciplines (such as algorithms, theory of computation, and information theory)
+        to applied disciplines (including the design and implementation of hardware and software).</string>
+    <string name="BASE_URL">https://cloudeliber-app.onrender.com/api/android/fetchFulldata</string>
+</resources>

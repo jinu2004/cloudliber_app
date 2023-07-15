@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/book_svgrepo_com.xml" value="0.2915" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/currency_rupee.xml" value="0.253" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/edittext.xml" value="0.2875" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/email_svgrepo_com.xml" value="0.357" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/facebook_network_communication_internet_interaction_svgrepo_com.xml" value="0.357" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/google_color_svgrepo_com.xml" value="0.357" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/gradle.xml" value="0.357" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/ic_baseline_keyboard_backspace_24.xml" value="0.302" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.169" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.357" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.287" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/mail.xml" value="0.357" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/mobile_login_pana__1_.xml" value="0.357" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/password_svgrepo_com.xml" value="0.3005" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/profile_1341_svgrepo_com.xml" value="0.357" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/read_svgrepo_com.xml" value="0.2915" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/sign_up_bro.xml" value="0.357" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/twitter_svgrepo_com.xml" value="0.357" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/writing_svgrepo_com.xml" value="0.2915" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/font/fonts.xml" value="0.3159469858914066" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_forgot_password.xml" value="0.2743280815569972" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_item_page.xml" value="0.2798887859128823" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_main.xml" value="0.29200513039760584" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_signin.xml" value="0.27817644575770367" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_signup.xml" value="0.2205746061167748" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/ad_banner.xml" value="0.29200513039760584" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/collection_container.xml" value="0.29200513039760584" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/fragment_home_screen.xml" value="0.29200513039760584" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/loading_layout.xml" value="0.29200513039760584" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/password_reset.xml" value="0.29200513039760584" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/recyclerview_of_books.xml" value="0.28830730265934995" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/review_ayout.xml" value="0.25" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/menu/bottom_menu.xml" value="0.2918803418803419" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/menu/item_view.xml" value="0.29200513039760584" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/menu/main_menu.xml" value="0.1111111111111111" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

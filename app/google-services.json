@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "204239095350",
+    "project_id": "cloudlibre-database",
+    "storage_bucket": "cloudlibre-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204239095350:android:643fac77d0c4b1f482fa97",
+        "android_client_info": {
+          "package_name": "come.jinu.cloudlibre"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204239095350-ibec4sk3q3l48fsn6p6citvjjiv65gs3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEJc3ukYQYcQ6QeOUcRKpPjT-Dc_YWuPs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204239095350-ibec4sk3q3l48fsn6p6citvjjiv65gs3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
