@@ -3,6 +3,8 @@ package come.jinu.cloudlibre
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
@@ -92,8 +94,10 @@ class MainActivity : AppCompatActivity() {
 	@SuppressLint("SetTextI18n")
 	override fun onResume() {
 		super.onResume()
+		Handler(Looper.getMainLooper()).postDelayed({
 		apiCards(binding.card1Heading,binding.card1Recycler)
 		apiCardsNon(binding.card2Heading,binding.card2Recycler)
+		},1000)
 	}
 
 	@Suppress("DEPRECATION")

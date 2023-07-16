@@ -1,5 +1,6 @@
 package come.jinu.cloudlibre
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -9,12 +10,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import come.jinu.cloudlibre.apiCloudeliber.ApiInstance
+import come.jinu.cloudlibre.apiCloudeliber.FullDetailFromApi
 import come.jinu.cloudlibre.databinding.ActivityItemPageBinding
 import retrofit2.HttpException
 import java.io.IOException
 
 class ItemPage : AppCompatActivity() {
 	private lateinit var itemBinding:ActivityItemPageBinding
+	companion object{
+		const val titles = "title"
+		const val auhtor = "auhtor"
+		const val about = "about"
+		const val date = "date"
+		const val publish = "publish"
+		const val isbn = "isbn"
+		const val subgenre = "subgenre"
+		const val coverpage = "coverpage"
+	}
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_item_page)
@@ -25,17 +37,7 @@ class ItemPage : AppCompatActivity() {
 		val genre = intent.getStringExtra("genre").toString()
 		getContentToShow(title,genre)
 
-
-
-
-
-
-		Handler(Looper.getMainLooper()).postDelayed({
-			getContentToShow(title, genre)
-		},1000)
 	}
-
-
 
 
 	private fun getContentToShow(title:String, genre:String){
@@ -99,6 +101,19 @@ class ItemPage : AppCompatActivity() {
 					Log.e(data.rating,"its not allowed")
 				}
 
+				itemBinding.expandAbout.setOnClickListener {
+					val intent = Intent(this@ItemPage,AboutItem::class.java)
+					intent.putExtra(titles,data.title)
+					intent.putExtra(auhtor,data.author)
+					intent.putExtra(about,data.about)
+					intent.putExtra(date,data.datepublished)
+					intent.putExtra(publish,data.publisher)
+					intent.putExtra(isbn,data.isbnno)
+					intent.putExtra(subgenre,data.subgenre)
+					intent.putExtra(coverpage,data.coverpage)
+					startActivity(intent)
+				}
+
 
 
 				Log.i("title",data.title)
@@ -110,6 +125,7 @@ class ItemPage : AppCompatActivity() {
 
 		}
 	}
+
 
 
 }
