@@ -26,10 +26,6 @@ class SignupActivity : AppCompatActivity() {
 		window.statusBarColor = ContextCompat.getColor(this, R.color.black)
 		window.navigationBarColor= ContextCompat.getColor(this, R.color.black)
 
-		signupBinding.imageView3.speed = 0.555f
-		signupBinding.imageView3.setOnClickListener{
-			signupBinding.imageView3.resumeAnimation()
-		}
 
 		signupBinding.SignUpBtn.setOnClickListener {
 			val email = signupBinding.emailTextUp.text.toString()
@@ -43,22 +39,29 @@ class SignupActivity : AppCompatActivity() {
 				confirmPassword.isNotEmpty() &&
 				username.isNotEmpty() &&
 				password == confirmPassword &&
-				password.contains("[a-z]".toRegex())&&
-				password.contains("[A-Z]".toRegex())&&
-				password.contains("[0-9]".toRegex())&&
-				password.contains("[!-~]".toRegex())&&
 				password.length>=8
 			)
 				createAccount(email, password, username)
 
-			else if (email.isEmpty()) signupBinding.emailTextUp.error = "required..."
-			else if(username.isEmpty())signupBinding.nameText.error = "required..."
-			else if (password.length<8)signupBinding.passTextUp.error = "8-16 characters required..."
-			else if (!password.contains("[!-~]".toRegex())) signupBinding.passTextUp.error = "!#$%&'()*+...,characters required..."
-			else if (!password.contains("[a-z]".toRegex())) signupBinding.passTextUp.error = "lowercase letter required..."
-			else if (!password.contains("[A-Z]".toRegex())) signupBinding.passTextUp.error = "Uppercase letter required..."
-			else if (!password.contains("[0-9]".toRegex())) signupBinding.passTextUp.error = "numbers required..."
-			else if(confirmPassword.isEmpty()||confirmPassword!=password)signupBinding.coTextUp.error = "required..."
+			else if (email.isEmpty()) signupBinding.emailCardUpInputLayout.error = "required..."
+			else if(username.isEmpty())signupBinding.nameCardInputLayout.error = "required..."
+			else if (password.length<8){
+				signupBinding.passwordCardUpInputLayout.error = "8-16 characters required..."
+				signupBinding.passTextUp.text?.clear()
+				signupBinding.coTextUp.text?.clear()
+			}
+//			else if (!password.contains("[!-~]".toRegex())) signupBinding.passwordCardUpInputLayout.error = "!#$%&'()*+...,characters required..."
+//			else if (!password.contains("[a-z]".toRegex())) signupBinding.passwordCardUpInputLayout.error = "lowercase letter required..."
+//			else if (!password.contains("[A-Z]".toRegex())) signupBinding.passwordCardUpInputLayout.error = "Uppercase letter required..."
+//			else if (!password.contains("[0-9]".toRegex())) signupBinding.passwordCardUpInputLayout.error = "numbers required..."
+
+
+			else if(confirmPassword.isEmpty()||confirmPassword!=password)
+			{
+				signupBinding.coCardUpInputLayout.error = "required..."
+				signupBinding.passTextUp.text?.clear()
+				signupBinding.coTextUp.text?.clear()
+			}
 		}
 
 		signupBinding.signin.setOnClickListener{

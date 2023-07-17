@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import come.jinu.cloudlibre.R
+import come.jinu.cloudlibre.apiCloudeliber.ApiClass
 
 class CloudBookAdapter(private val cloudBooksData: List<CloudBooksData>):RecyclerView.Adapter<CloudBookAdapter.ViewHolder>() {
 

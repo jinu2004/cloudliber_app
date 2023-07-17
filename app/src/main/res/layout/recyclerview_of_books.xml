@@ -6,108 +6,109 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="140dp"
-        android:layout_height="200dp"
-        app:cardElevation="0dp"
-        app:cardBackgroundColor="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        <androidx.cardview.widget.CardView
+            android:layout_width="140dp"
+            android:layout_height="200dp"
+            app:cardBackgroundColor="#00FFFFFF"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#00FFFFFF">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/neumorphCardView2"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_height="160dp"
-                app:cardCornerRadius="10dp"
-                app:cardUseCompatPadding="true"
-                app:neumorph_shadowElevation="3dp"
-                app:neumorph_shadowColorDark="#141313"
-                app:neumorph_shadowColorLight="#323232"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/neumorphCardView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:neumorph_shadowColorDark="#141313"
+                    app:neumorph_shadowColorLight="#323232"
+                    app:neumorph_shadowElevation="3dp">
+
                     <ImageView
-                        android:scaleType="centerCrop"
                         android:id="@+id/cover_page_img"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
                         app:srcCompat="@drawable/bookshop_1"
                         tools:ignore="ContentDescription" />
-            </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/title_of_book_recycler"
-                android:layout_width="110dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="10dp"
-                android:text="books"
-                android:textColor="@color/white"
-                app:fontFamily="@font/belanosima_bold"
-                app:layout_constraintBottom_toTopOf="@+id/stare_rate_recycler"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.065"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/neumorphCardView2"
-                app:layout_constraintVertical_bias="0.0"
-                tools:ignore="HardcodedText" />
+                <TextView
+                    android:id="@+id/title_of_book_recycler"
+                    android:layout_width="110dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="10dp"
+                    android:text="books"
+                    android:textColor="@color/white"
+                    app:fontFamily="@font/belanosima_bold"
+                    app:layout_constraintBottom_toTopOf="@+id/stare_rate_recycler"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.065"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/neumorphCardView2"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:ignore="HardcodedText" />
 
-            <TextView
-                android:textColor="@color/white"
-                android:id="@+id/stare_rate_recycler"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="5.0"
-                app:fontFamily="@font/belanosima_bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.054"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="HardcodedText" />
+                <TextView
+                    android:id="@+id/stare_rate_recycler"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="5.0"
+                    android:textColor="@color/white"
+                    app:fontFamily="@font/belanosima_bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.054"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="HardcodedText" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                app:layout_constraintBottom_toBottomOf="@id/stare_rate_recycler"
-                app:layout_constraintStart_toEndOf="@+id/stare_rate_recycler"
-                app:layout_constraintTop_toTopOf="@+id/stare_rate_recycler"
-                app:layout_constraintVertical_bias="0.523"
-                app:srcCompat="@drawable/ic_baseline_star_24"
-                tools:ignore="ContentDescription,ImageContrastCheck" />
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    app:layout_constraintBottom_toBottomOf="@id/stare_rate_recycler"
+                    app:layout_constraintStart_toEndOf="@+id/stare_rate_recycler"
+                    app:layout_constraintTop_toTopOf="@+id/stare_rate_recycler"
+                    app:layout_constraintVertical_bias="0.523"
+                    app:srcCompat="@drawable/ic_baseline_star_24"
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="12dp"
-                android:layout_height="12dp"
-                app:layout_constraintBottom_toBottomOf="@+id/price"
-                app:layout_constraintEnd_toStartOf="@+id/price"
-                app:layout_constraintTop_toTopOf="@+id/price"
-                app:srcCompat="@drawable/currency_rupee"
-                tools:ignore="ContentDescription" />
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/price"
+                    app:layout_constraintEnd_toStartOf="@+id/price"
+                    app:layout_constraintTop_toTopOf="@+id/price"
+                    app:srcCompat="@drawable/currency_rupee"
+                    tools:ignore="ContentDescription" />
 
-            <TextView
-                android:textColor="@color/white"
-                android:id="@+id/price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:text="440"
-                app:fontFamily="@font/belanosima_bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:ignore="HardcodedText" />
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="440"
+                    android:textColor="@color/white"
+                    app:fontFamily="@font/belanosima_bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="HardcodedText" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

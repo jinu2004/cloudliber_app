@@ -18,7 +18,7 @@
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/imageView3"
                 android:layout_width="match_parent"
-                android:layout_height="231dp"
+                android:layout_height="200dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -61,37 +61,40 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:id="@+id/email_card_in"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginTop="40dp"
-                app:cardCornerRadius="30dp"
+
                 app:cardBackgroundColor="@color/transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email_card_in_input_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Email"
-                    android:id="@+id/email_card_in_input_layout"
                     android:textColorHint="@color/white"
                     app:boxBackgroundColor="@color/transparent"
+                    app:boxStrokeErrorColor="@color/white"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/white"
+                    app:fontFamily="@font/montserrat_bold"
                     app:hintEnabled="true"
                     app:hintTextColor="@color/white"
-                    app:fontFamily="@font/montserrat_bold"
-                    app:startIconTint="@color/white"
                     app:startIconDrawable="@drawable/email_svgrepo_com"
+                    app:startIconTint="@color/white"
                     tools:ignore="HardcodedText">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/email_text_in"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
                         android:textColor="@color/white"
                         app:fontFamily="@font/montserrat_bold"
-                        android:background="@android:color/transparent"
                         tools:ignore="SpeakableTextPresentCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.cardview.widget.CardView>
@@ -99,12 +102,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/password_card"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
                 app:cardBackgroundColor="@color/transparent"
-                app:cardCornerRadius="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/email_card_in">
@@ -113,9 +115,13 @@
                     android:id="@+id/password_card_input_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Password"
+                    android:hint="password"
                     android:textColorHint="@color/white"
                     app:boxBackgroundColor="@color/transparent"
+                    app:boxStrokeColor="@color/white"
+                    app:boxStrokeErrorColor="@color/white"
+                    app:errorEnabled="true"
+                    app:errorTextColor="@color/white"
                     app:fontFamily="@font/montserrat_bold"
                     app:hintEnabled="true"
                     app:hintTextColor="@color/white"
@@ -169,73 +175,99 @@
                 app:layout_constraintTop_toBottomOf="@+id/Signin_btn"
                 tools:ignore="HardcodedText" />
 
-            <ImageButton
-                android:id="@+id/google_in"
-                android:layout_marginTop="30dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:background="@color/transparent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/forgot_password"
-                app:srcCompat="@drawable/google_color_svgrepo_com"
-                tools:ignore="ContentDescription" />
 
-            <ImageButton
-                android:id="@+id/twitter_in"
-                android:layout_marginTop="30dp"
-                android:layout_width="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView4"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginEnd="64dp"
-                android:background="@color/transparent"
-                app:layout_constraintEnd_toStartOf="@+id/facebook_in"
-                app:layout_constraintStart_toEndOf="@+id/google_in"
-                app:layout_constraintTop_toBottomOf="@+id/forgot_password"
-                app:srcCompat="@drawable/twitter_svgrepo_com"
-                tools:ignore="ContentDescription" />
-
-            <ImageButton
-                android:layout_marginTop="30dp"
-                android:id="@+id/facebook_in"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="80dp"
-                android:background="@color/transparent"
+                app:cardBackgroundColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/forgot_password"
-                app:srcCompat="@drawable/facebook_network_communication_internet_interaction_svgrepo_com"
-                tools:ignore="ContentDescription" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/forgot_password">
 
-            <TextView
-                android:id="@+id/textView6"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/google_in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="80dp"
+                        android:background="@color/transparent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/google_color_svgrepo_com"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageButton
+                        android:id="@+id/twitter_in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        app:layout_constraintEnd_toStartOf="@+id/facebook_in"
+                        app:layout_constraintStart_toEndOf="@+id/google_in"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/twitter_svgrepo_com"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageButton
+                        android:id="@+id/facebook_in"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="80dp"
+                        android:background="@color/transparent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/facebook_network_communication_internet_interaction_svgrepo_com"
+                        tools:ignore="ContentDescription" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="30dp"
-                android:layout_marginEnd="10dp"
-                android:text="Doesn't have an account ?"
-                android:textColor="@color/white"
-                app:fontFamily="@font/montserrat_bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/Signin_btn"
-                app:layout_constraintTop_toBottomOf="@+id/google_in"
-                app:layout_constraintVertical_bias="0.0"
-                tools:ignore="HardcodedText" />
+                app:cardBackgroundColor="@color/black"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView4">
 
-            <TextView
-                android:id="@+id/signin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sign up"
-                android:layout_marginStart="20dp"
-                android:textColor="@color/orange_200"
-                app:fontFamily="@font/montserrat_bold"
-                app:layout_constraintBottom_toBottomOf="@+id/textView6"
-                app:layout_constraintEnd_toEndOf="@+id/Signin_btn"
-                app:layout_constraintStart_toEndOf="@+id/textView6"
-                app:layout_constraintTop_toTopOf="@+id/textView6"
-                tools:ignore="HardcodedText" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="201dp"
+                        android:layout_height="16dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="50dp"
+                        android:text="Doesn't have an account ?"
+                        android:textColor="@color/white"
+                        app:fontFamily="@font/montserrat_bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintVertical_bias="1.0"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/signin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sign up"
+                        android:textColor="@color/orange_200"
+                        app:fontFamily="@font/montserrat_bold"
+
+                        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                        app:layout_constraintStart_toEndOf="@+id/textView6"
+                        app:layout_constraintTop_toTopOf="@+id/textView6"
+                        app:layout_goneMarginEnd="30dp"
+                        tools:ignore="HardcodedText" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

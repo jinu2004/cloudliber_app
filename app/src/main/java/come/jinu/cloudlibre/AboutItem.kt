@@ -3,6 +3,7 @@ package come.jinu.cloudlibre
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.google.gson.annotations.SerializedName
 import come.jinu.cloudlibre.apiCloudeliber.FullDetailFromApi
@@ -15,6 +16,8 @@ class AboutItem : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		binding = ActivityAboutItemBinding.inflate(layoutInflater)
 		setContentView(binding.root)
+		window.statusBarColor = ContextCompat.getColor(this, R.color.black)
+		window.navigationBarColor = ContextCompat.getColor(this, R.color.black)
 		val title = intent.getStringExtra(ItemPage.titles).toString()
 		val author = intent.getStringExtra(ItemPage.auhtor).toString()
 		val about = intent.getStringExtra(ItemPage.about).toString()

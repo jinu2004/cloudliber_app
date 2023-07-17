@@ -11,6 +11,8 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.green
+import androidx.core.graphics.red
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -22,7 +24,7 @@ class SigninActivity : AppCompatActivity() {
 	private lateinit var auth: FirebaseAuth
 	private lateinit var signinBinding: ActivitySigninBinding
 	@RequiresApi(Build.VERSION_CODES.S)
-	@SuppressLint("InflateParams")
+	@SuppressLint("InflateParams", "ResourceAsColor")
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		signinBinding = ActivitySigninBinding.inflate(layoutInflater)
@@ -36,15 +38,27 @@ class SigninActivity : AppCompatActivity() {
 			val email = signinBinding.emailTextIn.text.toString()
 			val password = signinBinding.passwordCardInput.text.toString()
 
+
+
+
+
 			if (email.isNotEmpty() && password.isNotEmpty())
 				signin(email,password)
 
-			else if (email.isEmpty())
-				signinBinding.emailTextIn.error = "required"
+			else if (email.isEmpty()) {
+				signinBinding.emailCardInInputLayout.error = "required"
+
+			}
+
 			else if (password.isEmpty())
-				signinBinding.passwordCardInput.error= "required"
+				signinBinding.passwordCardInputLayout.apply {
+					error = "required"
+				}
 
 		}
+
+
+
 
 		signinBinding.signin.setOnClickListener{
 			startActivity(Intent(this,SignupActivity::class.java))
@@ -88,8 +102,9 @@ class SigninActivity : AppCompatActivity() {
 						Toast.LENGTH_SHORT).show()
 					startActivity(Intent(this,MainActivity::class.java))
 				} else {
-					Toast.makeText(baseContext, "Somethings went wrong...",
+					Toast.makeText(baseContext, "please enter valid email and password...",
 						Toast.LENGTH_SHORT).show()
+						signinBinding.passwordCardInput.text?.clear()
 				}
 			}
 	}

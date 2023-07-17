@@ -19,49 +19,64 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="407dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:background="#00FFFFFF"
-                android:elevation="0dp"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
+                android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:logo="@drawable/img_20230624_wa0075"
-                app:menu="@menu/main_menu"
-                app:titleTextColor="@color/white" />
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="90dp"
-                android:text="cloudliber"
-                android:textColor="@color/white"
-                android:textSize="25sp"
-                app:fontFamily="@font/montserrat_bold"
-                app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-                app:layout_constraintEnd_toEndOf="@+id/toolbar"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/toolbar"
-                app:layout_constraintVertical_bias="0.567"
-                tools:ignore="HardcodedText" />
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="50dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cloudliber"
+                    android:textColor="@color/white"
+                    android:textSize="25sp"
+                    app:fontFamily="@font/belanosima_bold"
+                    android:layout_marginStart="3dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/toolbar"
+                    app:layout_constraintHorizontal_bias="0.078"
+                    app:layout_constraintStart_toEndOf="@+id/imageView6"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.521"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00FFFFFF"
+                    android:elevation="0dp"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="?attr/actionBarTheme"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:menu="@menu/main_menu" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/ads"
-                android:layout_marginTop="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:layout_marginTop="20dp"
                 app:iss_title_background="@color/transparent"
                 app:layout_constraintBottom_toTopOf="@id/card_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
                 app:layout_constraintVertical_bias="0.0" />
 
             <androidx.cardview.widget.CardView

@@ -7,6 +7,7 @@ import android.os.Looper
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import come.jinu.cloudlibre.apiCloudeliber.ApiInstance
@@ -32,10 +33,16 @@ class ItemPage : AppCompatActivity() {
 		setContentView(R.layout.activity_item_page)
 		itemBinding = ActivityItemPageBinding.inflate(layoutInflater)
 		setContentView(itemBinding.root)
+		window.statusBarColor = ContextCompat.getColor(this, R.color.black)
+		window.navigationBarColor = ContextCompat.getColor(this, R.color.black)
 		itemBinding.animation.visibility = View.VISIBLE
 		val title = intent.getStringExtra("title").toString()
 		val genre = intent.getStringExtra("genre").toString()
 		getContentToShow(title,genre)
+
+		itemBinding.toolbar2.setNavigationOnClickListener{
+			finish()
+		}
 
 	}
 
@@ -69,29 +76,22 @@ class ItemPage : AppCompatActivity() {
 					.load(data.coverpage)
 					.into(itemBinding.imageCover)
 				try {
-					when(data.rating.toInt()){
-						1-> itemBinding.star1.setColorFilter(R.color.yellow)
-						2-> itemBinding.apply {
-							star1.setColorFilter(R.color.yellow)
-							star2.setColorFilter(R.color.yellow)
-						}
+					when(data.rating.toFloat().toInt()){
+						4-> itemBinding.star5.setColorFilter(R.color.grey_800)
 						3-> itemBinding.apply {
-							star1.setColorFilter(R.color.yellow)
-							star2.setColorFilter(R.color.yellow)
-							star3.setColorFilter(R.color.yellow)
+							star4.setColorFilter(R.color.grey_800)
+							star5.setColorFilter(R.color.grey_800)
 						}
-						4-> itemBinding.apply {
-							star1.setColorFilter(R.color.yellow)
-							star2.setColorFilter(R.color.yellow)
-							star3.setColorFilter(R.color.yellow)
-							star4.setColorFilter(R.color.yellow)
+						2-> itemBinding.apply {
+							star3.setColorFilter(R.color.grey_800)
+							star4.setColorFilter(R.color.grey_800)
+							star5.setColorFilter(R.color.grey_800)
 						}
-						5-> itemBinding.apply {
-							star1.setColorFilter(R.color.yellow)
-							star2.setColorFilter(R.color.yellow)
-							star3.setColorFilter(R.color.yellow)
-							star4.setColorFilter(R.color.yellow)
-							star5.setColorFilter(R.color.yellow)
+						1-> itemBinding.apply {
+							star2.setColorFilter(R.color.grey_800)
+							star3.setColorFilter(R.color.grey_800)
+							star4.setColorFilter(R.color.grey_800)
+							star5.setColorFilter(R.color.grey_800)
 						}
 						else->{
 						}
