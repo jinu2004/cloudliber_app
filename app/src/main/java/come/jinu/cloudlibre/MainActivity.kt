@@ -19,9 +19,10 @@ import com.denzcoskun.imageslider.models.SlideModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import come.jinu.cloudlibre.apiCloudeliber.ApiAdapter
+import come.jinu.cloudlibre.adaptersAndDataclass.ApiAdapter
 import come.jinu.cloudlibre.apiCloudeliber.ApiClass
 import come.jinu.cloudlibre.apiCloudeliber.ApiInstance
+import come.jinu.cloudlibre.apiCloudeliber.ApiviewModel
 import come.jinu.cloudlibre.databinding.ActivityMainBinding
 import come.jinu.cloudlibre.roomdatabase.RoomBookData
 import come.jinu.cloudlibre.roomdatabase.RoomBookRecyclerAdapter
@@ -35,8 +36,9 @@ class MainActivity : AppCompatActivity() {
 	private lateinit var auth: FirebaseAuth
 	private lateinit var roomViewModel: RoomViewModel
 	private lateinit var binding: ActivityMainBinding
+	private lateinit var apiViewModel: ApiviewModel
 	override fun onCreate(savedInstanceState: Bundle?) {
-		val splash = installSplashScreen()
+		installSplashScreen()
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 		binding = ActivityMainBinding.inflate(layoutInflater)
@@ -47,6 +49,7 @@ class MainActivity : AppCompatActivity() {
 		window.navigationBarColor = ContextCompat.getColor(this, R.color.black)
 
 		roomViewModel = ViewModelProvider(this)[RoomViewModel::class.java]
+		apiViewModel = ViewModelProvider(this)[ApiviewModel::class.java]
 
 
 		val imageList = ArrayList<SlideModel>()
@@ -61,16 +64,83 @@ class MainActivity : AppCompatActivity() {
 		binding.ads.setImageList(imageList, scaleType = ScaleTypes.FIT)
 		binding.ads.setSlideAnimation(AnimationTypes.ZOOM_OUT)
 		binding.ads.startSliding(3000)
-		apiCards(binding.card1Heading,binding.card1Recycler)
-		apiCardsNon(binding.card2Heading,binding.card2Recycler)
 
+			apiViewModel.getBookList().observe(this@MainActivity) { datas ->
+				val adapter = ApiAdapter(datas)
+				binding.card3Recycler.layoutManager =
+					LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
+				binding.card3Recycler.adapter = adapter
+				adapter.setOnClickListener(object : ApiAdapter.OnClickListener {
+					override fun onClick(position: Int, data: ApiClass) {
+						val intent = Intent(this@MainActivity, ItemPage::class.java)
+						intent.putExtra("title", data.title)
+						intent.putExtra("genre", "fiction")
+						startActivity(intent)
+						Log.e("msg", data.subgenre)
+						Log.e("msg", data.title)
+					}
 
+				})
 
-//		Handler(Looper.getMainLooper()).postDelayed({
-//			apiCards(binding.card1Heading,binding.card1Recycler)
-//			apiCardsNon(binding.card2Heading,binding.card2Recycler)
-//			Log.i("notify","data fetched...")
-//		},1000)
+			}
+
+			apiViewModel.getBookList().observe(this@MainActivity) { datas ->
+				val adapter = ApiAdapter(datas)
+				binding.card1Recycler.layoutManager =
+					LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
+				binding.card1Recycler.adapter = adapter
+				adapter.setOnClickListener(object : ApiAdapter.OnClickListener {
+					override fun onClick(position: Int, data: ApiClass) {
+						val intent = Intent(this@MainActivity, ItemPage::class.java)
+						intent.putExtra("title", data.title)
+						intent.putExtra("genre", "fiction")
+						startActivity(intent)
+						Log.e("msg", data.subgenre)
+						Log.e("msg", data.title)
+					}
+
+				})
+
+			}
+
+			apiViewModel.getBookList().observe(this@MainActivity) { datas ->
+				val adapter = ApiAdapter(datas)
+				binding.card2Recycler.layoutManager =
+					LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
+				binding.card2Recycler.adapter = adapter
+				adapter.setOnClickListener(object : ApiAdapter.OnClickListener {
+					override fun onClick(position: Int, data: ApiClass) {
+						val intent = Intent(this@MainActivity, ItemPage::class.java)
+						intent.putExtra("title", data.title)
+						intent.putExtra("genre", "fiction")
+						startActivity(intent)
+						Log.e("msg", data.subgenre)
+						Log.e("msg", data.title)
+					}
+
+				})
+
+			}
+
+			apiViewModel.getBookList().observe(this@MainActivity) { datas ->
+				val adapter = ApiAdapter(datas)
+				binding.card4Recycler.layoutManager =
+					LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
+				binding.card4Recycler.adapter = adapter
+				adapter.setOnClickListener(object : ApiAdapter.OnClickListener {
+					override fun onClick(position: Int, data: ApiClass) {
+						val intent = Intent(this@MainActivity, ItemPage::class.java)
+						intent.putExtra("title", data.title)
+						intent.putExtra("genre", "fiction")
+						startActivity(intent)
+						Log.e("msg", data.subgenre)
+						Log.e("msg", data.title)
+					}
+
+				})
+
+			}
+
 
 
 
@@ -104,11 +174,6 @@ class MainActivity : AppCompatActivity() {
 	}
 
 
-	@SuppressLint("SetTextI18n")
-	override fun onResume() {
-		super.onResume()
-	}
-
 	@Suppress("DEPRECATION")
 	@SuppressLint("SetTextI18n")
 	private fun cards(heading: TextView,recyclerView: RecyclerView,tittle: String,category:String)
@@ -140,90 +205,4 @@ class MainActivity : AppCompatActivity() {
 
 	}
 
-
-
-	@SuppressLint("NotifyDataSetChanged", "SetTextI18n")
-	private fun apiCards(heading: TextView, recyclerView: RecyclerView){
-		val adapter = ApiAdapter()
-		Timer().scheduleAtFixedRate(0, 300000) {
-			lifecycleScope.launchWhenCreated {
-				val response = try {
-					ApiInstance.api.getFictionData()
-				} catch (e: IOException) {
-					Log.e("response", "net work error may be")
-					return@launchWhenCreated
-				} catch (e: HttpException) {
-					Log.e("response", "page is not available")
-					Toast.makeText(baseContext, "check your internet", Toast.LENGTH_SHORT).show()
-					return@launchWhenCreated
-				}
-				if (response.isSuccessful && response.body() != null) {
-					adapter.data = response.body()!!
-					adapter.notifyDataSetChanged()
-					Log.i("notify","data fetched...")
-				} else Log.e("msg", "false")
-
-			}
-		}
-		recyclerView.layoutManager =
-			LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
-		recyclerView.adapter = adapter
-		adapter.setOnClickListener(object : ApiAdapter.OnClickListener {
-			override fun onClick(position: Int, data: ApiClass) {
-				val intent = Intent(this@MainActivity, ItemPage::class.java)
-				intent.putExtra("title", data.title)
-				intent.putExtra("genre", "fiction")
-				startActivity(intent)
-				Log.e("msg", data.subgenre)
-				Log.e("msg", data.title)
-			}
-		})
-		heading.text = "Fiction"
-	}
-
-
-
-	@SuppressLint("NotifyDataSetChanged", "SetTextI18n")
-	private fun apiCardsNon(heading: TextView, recyclerView: RecyclerView){
-		val adapter = ApiAdapter()
-		Timer().scheduleAtFixedRate(0, 300000) {
-			lifecycleScope.launchWhenCreated {
-				val response = try {
-					ApiInstance.api.getNonFictionData()
-				}
-				catch (e:IOException){
-					Log.e("response","net work error may be")
-					return@launchWhenCreated
-				}
-				catch (e:HttpException){
-					Log.e("response","page is not available")
-					Toast.makeText(baseContext, "check your internet", Toast.LENGTH_SHORT).show()
-					return@launchWhenCreated
-				}
-				if (response.isSuccessful && response.body() != null) {
-
-					adapter.data = response.body()!!
-					adapter.notifyDataSetChanged()
-				}
-				else Log.e("msg","false")
-			}
-			Log.i("notify","data fetched...")
-		}
-		recyclerView.layoutManager = LinearLayoutManager(this@MainActivity,RecyclerView.HORIZONTAL,false)
-		recyclerView.adapter = adapter
-		adapter.setOnClickListener(object :ApiAdapter.OnClickListener{
-			override fun onClick(position: Int,data:ApiClass) {
-				val intent = Intent(this@MainActivity,ItemPage::class.java)
-				intent.putExtra("title", data.title)
-				intent.putExtra("genre", "nonfiction")
-				startActivity(intent)
-				Log.e("msg", data.subgenre)
-				Log.e("msg", data.title)
-			}
-
-		})
-		heading.text = "Non_fiction"
-	}
-
-
-	}
+}

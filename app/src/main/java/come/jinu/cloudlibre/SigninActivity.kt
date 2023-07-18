@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.green
 import androidx.core.graphics.red
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -26,6 +27,7 @@ class SigninActivity : AppCompatActivity() {
 	@RequiresApi(Build.VERSION_CODES.S)
 	@SuppressLint("InflateParams", "ResourceAsColor")
 	override fun onCreate(savedInstanceState: Bundle?) {
+		installSplashScreen()
 		super.onCreate(savedInstanceState)
 		signinBinding = ActivitySigninBinding.inflate(layoutInflater)
 		setContentView(signinBinding.root)

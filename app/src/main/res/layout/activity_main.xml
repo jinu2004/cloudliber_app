@@ -29,10 +29,12 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
+                    android:src = "@drawable/img_20230624_wa0075"
                     android:id="@+id/imageView6"
                     android:layout_width="50dp"
                     android:layout_marginStart="15dp"
                     android:layout_height="match_parent"
+                    android:maxHeight="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -44,7 +46,7 @@
                     android:textColor="@color/white"
                     android:textSize="25sp"
                     app:fontFamily="@font/belanosima_bold"
-                    android:layout_marginStart="3dp"
+                    android:layout_marginStart="10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/toolbar"
                     app:layout_constraintHorizontal_bias="0.078"
@@ -53,14 +55,14 @@
                     app:layout_constraintVertical_bias="0.521"
                     tools:ignore="HardcodedText" />
 
-                <com.google.android.material.appbar.MaterialToolbar
+                <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#00FFFFFF"
                     android:elevation="0dp"
                     android:minHeight="?attr/actionBarSize"
-                    android:theme="?attr/actionBarTheme"
+                    android:theme="@style/Theme.CloudLibre"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:menu="@menu/main_menu" />

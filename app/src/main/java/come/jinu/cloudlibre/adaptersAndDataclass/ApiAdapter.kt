@@ -1,39 +1,20 @@
-package come.jinu.cloudlibre.apiCloudeliber
+package come.jinu.cloudlibre.adaptersAndDataclass
 
 import android.annotation.SuppressLint
-import android.app.Application
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import come.jinu.cloudlibre.R
+import come.jinu.cloudlibre.apiCloudeliber.ApiClass
 import come.jinu.cloudlibre.databinding.RecyclerviewOfBooksBinding
 
-class ApiAdapter:RecyclerView.Adapter<ApiAdapter.ApiClassViewHolder>() {
+class ApiAdapter(private val data:List<ApiClass>):RecyclerView.Adapter<ApiAdapter.ApiClassViewHolder>() {
 
 	inner class ApiClassViewHolder(val binding: RecyclerviewOfBooksBinding):RecyclerView.ViewHolder(binding.root)
 
-	private var onClickListener:OnClickListener?=null
-
-	private val diffCallable = object :DiffUtil.ItemCallback<ApiClass>(){
-		override fun areItemsTheSame(oldItem: ApiClass, newItem: ApiClass): Boolean {
-			return oldItem.title == newItem.title
-		}
-
-
-		override fun areContentsTheSame(oldItem: ApiClass, newItem: ApiClass): Boolean {
-			return oldItem == newItem
-		}
-
-	}
-	private val differ = AsyncListDiffer(this@ApiAdapter,diffCallable)
-	var data:List<ApiClass>
-		get() = differ.currentList
-		set(value){differ.submitList(value)}
-
+	private var onClickListener: OnClickListener?=null
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ApiClassViewHolder {
 		val view = RecyclerviewOfBooksBinding.inflate(LayoutInflater.from(parent.context))
@@ -67,7 +48,7 @@ class ApiAdapter:RecyclerView.Adapter<ApiAdapter.ApiClassViewHolder>() {
 
 	// onClickListener Interface
 	interface OnClickListener {
-		fun onClick(position: Int,data:ApiClass)
+		fun onClick(position: Int,data: ApiClass)
 	}
 
 }

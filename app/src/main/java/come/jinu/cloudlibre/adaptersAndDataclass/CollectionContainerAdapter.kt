@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import come.jinu.cloudlibre.R
-import come.jinu.cloudlibre.apiCloudeliber.ApiAdapter
 
 class CollectionContainerAdapter(private val collectionContainer:List<CollectionContainer>):RecyclerView.Adapter<CollectionContainerAdapter.CollectionContainerViewHolder>(){
 	inner class CollectionContainerViewHolder(itemView:View):RecyclerView.ViewHolder(itemView)
@@ -27,8 +26,7 @@ class CollectionContainerAdapter(private val collectionContainer:List<Collection
 		holder.title.text = data.Tittle
 		holder.booksRecyclerView.setHasFixedSize(true)
 		holder.booksRecyclerView.layoutManager = LinearLayoutManager(holder.itemView.context,RecyclerView.HORIZONTAL,false)
-		ApiAdapter().data = data.BookList
-		holder.booksRecyclerView.adapter = ApiAdapter()
+		holder.booksRecyclerView.adapter = ApiAdapter(data.BookList)
 	}
 
 	override fun getItemCount(): Int {

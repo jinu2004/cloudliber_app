@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import come.jinu.cloudlibre.databinding.ActivityForgotPasswordBinding
@@ -12,6 +13,7 @@ import come.jinu.cloudlibre.databinding.ActivityForgotPasswordBinding
 class Forgot_password : AppCompatActivity() {
 	private lateinit var binding: ActivityForgotPasswordBinding
 	override fun onCreate(savedInstanceState: Bundle?) {
+		installSplashScreen()
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_forgot_password)
 		binding = ActivityForgotPasswordBinding.inflate(layoutInflater)

@@ -6,11 +6,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiInstance {
 	val api:CloudLiberApi by lazy {
-		Retrofit.Builder()
+		    Retrofit.Builder()
 			.baseUrl(BuildConfig.WEB_LINK)
 			.addConverterFactory(GsonConverterFactory.create())
 			.build()
 			.create(CloudLiberApi::class.java)
-
 	}
 }
