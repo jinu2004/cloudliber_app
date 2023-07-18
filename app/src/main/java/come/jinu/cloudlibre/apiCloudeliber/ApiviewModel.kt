@@ -10,7 +10,7 @@ import kotlin.concurrent.scheduleAtFixedRate
 class ApiviewModel:ViewModel() {
 
 	private val api = ApiInstance.api
-	
+
 	fun getBookList():LiveData<List<ApiClass>>{
 		val _booksList = MutableLiveData<List<ApiClass>>()
 		Timer().scheduleAtFixedRate(0,30000) {
