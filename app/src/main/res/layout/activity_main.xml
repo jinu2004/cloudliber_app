@@ -18,68 +18,178 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout2"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:src = "@drawable/img_20230624_wa0075"
-                    android:id="@+id/imageView6"
-                    android:layout_width="50dp"
-                    android:layout_marginStart="15dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:maxHeight="50dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cloudliber"
-                    android:textColor="@color/white"
-                    android:textSize="25sp"
-                    app:fontFamily="@font/belanosima_bold"
-                    android:layout_marginStart="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/toolbar"
-                    app:layout_constraintHorizontal_bias="0.078"
-                    app:layout_constraintStart_toEndOf="@+id/imageView6"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.521"
-                    tools:ignore="HardcodedText" />
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView8"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="20dp"
+                        app:cardBackgroundColor="@color/black"
+                        app:cardCornerRadius="100dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
-                    android:elevation="0dp"
-                    android:minHeight="?attr/actionBarSize"
-                    android:theme="@style/Theme.CloudLibre"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:menu="@menu/main_menu" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/bookshop_1" />
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <TextView
+                        android:id="@+id/username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:maxWidth="200dp"
+                        android:maxHeight="30dp"
+                        android:text="sree hari"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:fontFamily="@font/montserrat_bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/cardView8"
+                        app:layout_constraintTop_toTopOf="@id/cardView8"
+                        app:layout_constraintVertical_bias="0.125"
+                        tools:ignore="HardcodedText" />
+
+                    <TextView
+                        android:id="@+id/points"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:maxWidth="200dp"
+                        android:maxHeight="30dp"
+                        android:text="125/1000Pts"
+                        android:textColor="#656262"
+                        android:textSize="15sp"
+                        app:fontFamily="@font/montserrat_bold"
+                        app:layout_constraintBottom_toBottomOf="@id/cardView8"
+                        app:layout_constraintEnd_toEndOf="@+id/username"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/username"
+                        app:layout_constraintTop_toBottomOf="@+id/username" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView10"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginEnd="10dp"
+                        app:cardBackgroundColor="@color/black"
+                        app:cardCornerRadius="15dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_notification_6_svgrepo_com" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Search any books"
+                android:textColor="#939090"
+                app:backgroundTint="@color/transparent"
+                app:cornerRadius="1dp"
+                app:icon="@drawable/ic_search_5_svgrepo_com"
+                app:iconPadding="-111dp"
+                app:iconTint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView5"
+                app:strokeColor="@color/grey_800"
+                app:strokeWidth="2dp"
+                tools:ignore="HardcodedText" />
+
+
+
 
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/ads"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:iss_corner_radius="10"
+                android:layout_marginTop="30dp"
                 app:iss_title_background="@color/transparent"
                 app:layout_constraintBottom_toTopOf="@id/card_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/button"
                 app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/catogaries"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="32dp"
+                app:cardBackgroundColor="@color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ads">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view_catogary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:reverseLayout="true" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_1"
@@ -88,7 +198,7 @@
                 app:cardBackgroundColor="#00FFFFFF"
                 android:layout_marginTop="10dp"
                 app:cardElevation="0dp"
-                app:layout_constraintTop_toBottomOf="@id/ads"
+                app:layout_constraintTop_toBottomOf="@id/catogaries"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -97,6 +207,8 @@
                     android:layout_height="match_parent"
                     android:background="#00FFFFFF">
 
+
+
                     <TextView
                         android:id="@+id/card_1_heading"
                         android:layout_width="wrap_content"
@@ -104,7 +216,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginStart="20dp"
                         android:textColor="@color/white"
-
+                        android:text="New Release"
                         android:textSize="26sp"
                         app:fontFamily="@font/belanosima_semibold"
                         app:layout_constraintBottom_toTopOf="@+id/card_1_recycler"
@@ -114,6 +226,17 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.041"
                         tools:ignore="HardcodedText" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:background="@color/black"
+                        app:layout_constraintBottom_toTopOf="@+id/card_1_recycler"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_baseline_east_24" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/card_1_recycler"
@@ -128,6 +251,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/card_1_heading"
                         tools:itemCount="10" />
+
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -156,6 +280,7 @@
                         android:layout_marginTop="10dp"
                         android:textColor="@color/white"
                         android:textSize="26sp"
+                        android:text="Recommended for you"
                         app:fontFamily="@font/belanosima_semibold"
                         app:layout_constraintBottom_toTopOf="@+id/card_2_recycler"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -164,6 +289,16 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.041"
                         tools:ignore="HardcodedText" />
+                    <ImageButton
+                        android:id="@+id/imageButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:background="@color/black"
+                        app:layout_constraintBottom_toTopOf="@+id/card_2_recycler"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_baseline_east_24" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/card_2_recycler"
@@ -181,113 +316,16 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_3"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="290dp"
-                app:cardBackgroundColor="#00FFFFFF"
-                app:cardElevation="0dp"
-                app:layout_constraintTop_toBottomOf="@id/card_2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#00FFFFFF">
-
-                    <TextView
-                        android:id="@+id/card_3_heading"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:textColor="@color/white"
-                        android:layout_marginStart="20dp"
-                        android:textSize="26sp"
-                        app:fontFamily="@font/belanosima_semibold"
-                        app:layout_constraintBottom_toTopOf="@+id/card_3_recycler"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.007"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.041"
-                        tools:ignore="HardcodedText" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/card_3_recycler"
-                        android:layout_width="match_parent"
-                        android:layout_height="250dp"
-                        android:layout_marginTop="10dp"
-                        app:fastScrollEnabled="false"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/card_3_heading" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_4"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="290dp"
-                app:cardBackgroundColor="#00FFFFFF"
-                app:cardElevation="0dp"
-                app:layout_constraintTop_toBottomOf="@id/card_3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#00FFFFFF">
-
-                    <TextView
-                        android:id="@+id/card_4_heading"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:textColor="@color/white"
-                        android:textSize="26sp"
-                        app:fontFamily="@font/belanosima_semibold"
-                        app:layout_constraintBottom_toTopOf="@+id/card_4_recycler"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.007"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.041"
-                        tools:ignore="HardcodedText" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/card_4_recycler"
-                        android:layout_width="match_parent"
-                        android:layout_height="250dp"
-                        android:layout_marginTop="10dp"
-                        app:fastScrollEnabled="false"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/card_4_heading" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/collection_of_card"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_constraintTop_toBottomOf="@id/card_4"
+                app:layout_constraintTop_toBottomOf="@id/card_2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 />
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

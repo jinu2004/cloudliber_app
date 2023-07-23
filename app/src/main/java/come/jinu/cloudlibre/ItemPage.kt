@@ -2,22 +2,14 @@ package come.jinu.cloudlibre
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
-import come.jinu.cloudlibre.apiCloudeliber.ApiInstance
 import come.jinu.cloudlibre.apiCloudeliber.ApiviewModel
-import come.jinu.cloudlibre.apiCloudeliber.FullDetailFromApi
 import come.jinu.cloudlibre.databinding.ActivityItemPageBinding
-import retrofit2.HttpException
-import java.io.IOException
 
 class ItemPage : AppCompatActivity() {
 	private lateinit var itemBinding:ActivityItemPageBinding
@@ -33,7 +25,6 @@ class ItemPage : AppCompatActivity() {
 		const val coverpage = "coverpage"
 	}
 	override fun onCreate(savedInstanceState: Bundle?) {
-		installSplashScreen()
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_item_page)
 		itemBinding = ActivityItemPageBinding.inflate(layoutInflater)

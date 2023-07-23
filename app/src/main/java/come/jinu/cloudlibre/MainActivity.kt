@@ -5,12 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.denzcoskun.imageslider.constants.AnimationTypes
@@ -21,16 +18,11 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import come.jinu.cloudlibre.adaptersAndDataclass.ApiAdapter
 import come.jinu.cloudlibre.apiCloudeliber.ApiClass
-import come.jinu.cloudlibre.apiCloudeliber.ApiInstance
 import come.jinu.cloudlibre.apiCloudeliber.ApiviewModel
 import come.jinu.cloudlibre.databinding.ActivityMainBinding
 import come.jinu.cloudlibre.roomdatabase.RoomBookData
 import come.jinu.cloudlibre.roomdatabase.RoomBookRecyclerAdapter
 import come.jinu.cloudlibre.roomdatabase.RoomViewModel
-import retrofit2.HttpException
-import java.io.IOException
-import java.util.*
-import kotlin.concurrent.scheduleAtFixedRate
 
 class MainActivity : AppCompatActivity() {
 	private lateinit var auth: FirebaseAuth
@@ -38,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityMainBinding
 	private lateinit var apiViewModel: ApiviewModel
 	override fun onCreate(savedInstanceState: Bundle?) {
-		installSplashScreen()
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 		binding = ActivityMainBinding.inflate(layoutInflater)
@@ -62,27 +53,8 @@ class MainActivity : AppCompatActivity() {
 		imageList.add(SlideModel("https://cdn.pixabay.com/photo/2016/08/24/16/20/books-1617327_640.jpg",
 			""))
 		binding.ads.setImageList(imageList, scaleType = ScaleTypes.FIT)
-		binding.ads.setSlideAnimation(AnimationTypes.ZOOM_OUT)
+		binding.ads.setSlideAnimation(AnimationTypes.DEPTH_SLIDE)//depth slide // GAtE//
 		binding.ads.startSliding(3000)
-
-			apiViewModel.getBookList().observe(this@MainActivity) { datas ->
-				val adapter = ApiAdapter(datas)
-				binding.card3Recycler.layoutManager =
-					LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
-				binding.card3Recycler.adapter = adapter
-				adapter.setOnClickListener(object : ApiAdapter.OnClickListener {
-					override fun onClick(position: Int, data: ApiClass) {
-						val intent = Intent(this@MainActivity, ItemPage::class.java)
-						intent.putExtra("title", data.title)
-						intent.putExtra("genre", "fiction")
-						startActivity(intent)
-						Log.e("msg", data.subgenre)
-						Log.e("msg", data.title)
-					}
-
-				})
-
-			}
 
 			apiViewModel.getBookList().observe(this@MainActivity) { datas ->
 				val adapter = ApiAdapter(datas)
@@ -108,25 +80,6 @@ class MainActivity : AppCompatActivity() {
 				binding.card2Recycler.layoutManager =
 					LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
 				binding.card2Recycler.adapter = adapter
-				adapter.setOnClickListener(object : ApiAdapter.OnClickListener {
-					override fun onClick(position: Int, data: ApiClass) {
-						val intent = Intent(this@MainActivity, ItemPage::class.java)
-						intent.putExtra("title", data.title)
-						intent.putExtra("genre", "fiction")
-						startActivity(intent)
-						Log.e("msg", data.subgenre)
-						Log.e("msg", data.title)
-					}
-
-				})
-
-			}
-
-			apiViewModel.getBookList().observe(this@MainActivity) { datas ->
-				val adapter = ApiAdapter(datas)
-				binding.card4Recycler.layoutManager =
-					LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
-				binding.card4Recycler.adapter = adapter
 				adapter.setOnClickListener(object : ApiAdapter.OnClickListener {
 					override fun onClick(position: Int, data: ApiClass) {
 						val intent = Intent(this@MainActivity, ItemPage::class.java)

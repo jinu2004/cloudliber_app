@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
@@ -20,7 +19,6 @@ class SignupActivity : AppCompatActivity() {
 
 	@SuppressLint("ResourceAsColor")
 	override fun onCreate(savedInstanceState: Bundle?) {
-		installSplashScreen()
 		super.onCreate(savedInstanceState)
 		signupBinding = ActivitySignupBinding.inflate(layoutInflater)
 		setContentView(signupBinding.root)

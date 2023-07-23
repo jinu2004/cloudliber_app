@@ -15,6 +15,8 @@
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.357" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.287" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3045" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/ic_notification_6_svgrepo_com.xml" value="0.3155" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/ic_search_5_svgrepo_com.xml" value="0.3155" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/icons_of_app.xml" value="0.3045" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/icons_of_app_background.xml" value="0.3045" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/drawable/mail.xml" value="0.357" />
@@ -29,14 +31,17 @@
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_about_item.xml" value="0.29200513039760584" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_forgot_password.xml" value="0.2743280815569972" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_item_page.xml" value="0.28830730265934995" />
-        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_main.xml" value="0.2789620018535681" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_main.xml" value="0.2881856540084388" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_search.xml" value="0.29200513039760584" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_signin.xml" value="0.29200513039760584" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_signup.xml" value="0.2789620018535681" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/activity_splash_screen.xml" value="0.29200513039760584" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/ad_banner.xml" value="0.29200513039760584" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/cat_recycler_view.xml" value="0.2918803418803419" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/catogory_recyclerview.xml" value="0.29102564102564105" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/collection_container.xml" value="0.29200513039760584" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/fragment_home_screen.xml" value="0.29200513039760584" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/home_screen_layout.xml" value="0.2881856540084388" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/loading_layout.xml" value="0.29200513039760584" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/password_reset.xml" value="0.29200513039760584" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/layout/recyclerview_of_books.xml" value="0.28830730265934995" />
@@ -44,6 +49,8 @@
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/menu/bottom_menu.xml" value="0.2918803418803419" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/menu/item_view.xml" value="0.29200513039760584" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/menu/main_menu.xml" value="0.1111111111111111" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/mipmap-anydpi-v26/ic_luncher.xml" value="0.255" />
+        <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/mipmap-anydpi-v26/ic_luncher_round.xml" value="0.255" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/mipmap-anydpi-v26/icons_of_app.xml" value="0.3045" />
         <entry key="..\:/Android_projects/Cloudelibre/app/src/main/res/mipmap-anydpi-v26/icons_of_app_round.xml" value="0.3045" />
       </map>
