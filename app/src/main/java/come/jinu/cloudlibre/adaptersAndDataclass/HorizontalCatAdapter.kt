@@ -1,10 +1,9 @@
 package come.jinu.cloudlibre.adaptersAndDataclass
 
-import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import come.jinu.cloudlibre.R
 import come.jinu.cloudlibre.databinding.CatRecyclerViewBinding
 
 class HorizontalCatAdapter(private val cat:List<catogery>):RecyclerView.Adapter<HorizontalCatAdapter.ViewHolder>() {
@@ -17,11 +16,10 @@ class HorizontalCatAdapter(private val cat:List<catogery>):RecyclerView.Adapter<
 		return ViewHolder(view)
 	}
 
-	@SuppressLint("ResourceAsColor")
 	override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 		val datas = cat[position]
 		if (position == 0){
-			holder.viewBinding.stroke.setCardBackgroundColor(R.color.orange_200)
+			holder.viewBinding.stroke.setCardBackgroundColor(Color.YELLOW)
 		}
 		holder.viewBinding.title.text = datas.category
 		holder.itemView.setOnClickListener {

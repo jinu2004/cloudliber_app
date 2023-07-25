@@ -17,6 +17,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import come.jinu.cloudlibre.adaptersAndDataclass.ApiAdapter
+import come.jinu.cloudlibre.adaptersAndDataclass.HorizontalCatAdapter
+import come.jinu.cloudlibre.adaptersAndDataclass.catogery
 import come.jinu.cloudlibre.apiCloudeliber.ApiClass
 import come.jinu.cloudlibre.apiCloudeliber.ApiviewModel
 import come.jinu.cloudlibre.databinding.ActivityMainBinding
@@ -55,6 +57,17 @@ class MainActivity : AppCompatActivity() {
 		binding.ads.setImageList(imageList, scaleType = ScaleTypes.FIT)
 		binding.ads.setSlideAnimation(AnimationTypes.DEPTH_SLIDE)//depth slide // GAtE//
 		binding.ads.startSliding(3000)
+		binding.username.text = auth.currentUser?.displayName
+
+		val category = ArrayList<catogery>()
+		category.add(catogery("all"))
+		category.add(catogery("stories"))
+		category.add(catogery("science"))
+		category.add(catogery("history"))
+		category.add(catogery("chemistry"))
+		val adapter = HorizontalCatAdapter(category)
+		binding.categoryRecycler.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
+		binding.categoryRecycler.adapter = adapter
 
 			apiViewModel.getBookList().observe(this@MainActivity) { datas ->
 				val adapter = ApiAdapter(datas)
