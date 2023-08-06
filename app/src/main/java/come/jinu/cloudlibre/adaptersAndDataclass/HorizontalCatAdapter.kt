@@ -19,7 +19,7 @@ class HorizontalCatAdapter(private val cat:List<catogery>):RecyclerView.Adapter<
 	override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 		val datas = cat[position]
 		if (position == 0){
-			holder.viewBinding.stroke.setCardBackgroundColor(Color.YELLOW)
+			holder.viewBinding.stroke.setCardBackgroundColor(Color.parseColor("#FF725E"))
 		}
 		holder.viewBinding.title.text = datas.category
 		holder.itemView.setOnClickListener {

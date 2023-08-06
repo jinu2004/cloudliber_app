@@ -1,7 +1,10 @@
 package come.jinu.cloudlibre.apiCloudeliber
 
 import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.util.*
@@ -17,6 +20,26 @@ class ApiviewModel:ViewModel() {
 			viewModelScope.launch {
 				try {
 					val response = api.getFictionData()
+					if (response.isSuccessful)
+						_booksList.value = response.body()
+				} catch (e: Exception) {
+					Log.e("errorFromApi", e.stackTrace.toString())
+					return@launch
+				} catch (e: HttpException) {
+					Log.e("errorFromApi", e.stackTrace.toString())
+					return@launch
+				}
+
+			}
+		}
+		return _booksList
+	}
+	fun getBookListN():LiveData<List<ApiClass>>{
+		val _booksList = MutableLiveData<List<ApiClass>>()
+		Timer().scheduleAtFixedRate(0,30000) {
+			viewModelScope.launch {
+				try {
+					val response = api.getNonFictionData()
 					if (response.isSuccessful)
 						_booksList.value = response.body()
 				} catch (e: Exception) {

@@ -4,21 +4,21 @@
     <item
         android:id="@+id/home"
         android:title=""
-        android:icon="@drawable/home"
+        android:icon="@drawable/home_1_svgrepo_com"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/search"
         android:title=""
-        android:icon="@drawable/magnifying"
+        android:icon="@drawable/shopping_cart_free_15_svgrepo_com"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/library"
         android:title=""
-        android:icon="@drawable/books"
+        android:icon="@drawable/settings_svgrepo_com"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/settings"
         android:title=""
-        android:icon="@drawable/profile"
+        android:icon="@drawable/premium_badge_svgrepo_com"
         app:showAsAction="ifRoom" />
 </menu>

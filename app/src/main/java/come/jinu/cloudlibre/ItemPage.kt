@@ -58,6 +58,7 @@ class ItemPage : AppCompatActivity() {
 			itemBinding.starRateTextBig.text = data.rating
 			itemBinding.publisher.text = data.publisher
 			itemBinding.about.text = data.about
+			itemBinding.price.text = data.price
 			Glide.with(itemBinding.root.context)
 				.load(data.coverpage)
 				.into(itemBinding.imageCover)

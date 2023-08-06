@@ -2,11 +2,13 @@ package come.jinu.cloudlibre
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,6 +27,7 @@ import come.jinu.cloudlibre.databinding.ActivityMainBinding
 import come.jinu.cloudlibre.roomdatabase.RoomBookData
 import come.jinu.cloudlibre.roomdatabase.RoomBookRecyclerAdapter
 import come.jinu.cloudlibre.roomdatabase.RoomViewModel
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 	private lateinit var auth: FirebaseAuth
@@ -32,6 +35,7 @@ class MainActivity : AppCompatActivity() {
 	private lateinit var binding: ActivityMainBinding
 	private lateinit var apiViewModel: ApiviewModel
 	override fun onCreate(savedInstanceState: Bundle?) {
+		installSplashScreen()
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 		binding = ActivityMainBinding.inflate(layoutInflater)
@@ -88,7 +92,7 @@ class MainActivity : AppCompatActivity() {
 
 			}
 
-			apiViewModel.getBookList().observe(this@MainActivity) { datas ->
+			apiViewModel.getBookListN().observe(this@MainActivity) { datas ->
 				val adapter = ApiAdapter(datas)
 				binding.card2Recycler.layoutManager =
 					LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
@@ -97,7 +101,7 @@ class MainActivity : AppCompatActivity() {
 					override fun onClick(position: Int, data: ApiClass) {
 						val intent = Intent(this@MainActivity, ItemPage::class.java)
 						intent.putExtra("title", data.title)
-						intent.putExtra("genre", "fiction")
+						intent.putExtra("genre", "nonfiction")
 						startActivity(intent)
 						Log.e("msg", data.subgenre)
 						Log.e("msg", data.title)
@@ -108,7 +112,12 @@ class MainActivity : AppCompatActivity() {
 			}
 
 
-
+		if (auth.currentUser?.photoUrl == null) {
+			binding.profilePicName.text = auth.currentUser?.displayName?.first().toString()
+			val rnd = Random()
+			val color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
+			binding.profilePic.setBackgroundColor(color)
+		}
 
 	}
 

@@ -10,7 +10,7 @@
     tools:context=".ItemPage">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:elevation="1dp"
+    android:elevation="0dp"
     android:id="@+id/animation"
     android:background="@color/black"
     android:layout_height="match_parent">
@@ -131,6 +131,31 @@
                         app:layout_constraintTop_toBottomOf="@+id/author_item_view"
                         tools:ignore="HardcodedText" />
 
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/price"
+                        app:layout_constraintStart_toStartOf="@+id/publisher"
+                        app:layout_constraintTop_toTopOf="@+id/price"
+                        app:srcCompat="@drawable/currency_rupee"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="480"
+                        android:layout_marginTop="30"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        app:fontFamily="@font/montserrat_bold"
+                        app:layout_constraintEnd_toEndOf="@+id/publisher"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/imageView2"
+                        app:layout_constraintTop_toBottomOf="@+id/publisher"
+                        tools:ignore="HardcodedText" />
 
                     <TextView
                         android:id="@+id/rate_item"
