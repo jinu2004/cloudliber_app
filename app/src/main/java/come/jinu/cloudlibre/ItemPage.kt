@@ -1,5 +1,6 @@
 package come.jinu.cloudlibre
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -47,6 +48,7 @@ class ItemPage : AppCompatActivity() {
 	}
 
 
+	@SuppressLint("SetTextI18n")
 	private fun getContentToShow(title:String, genre:String) {
 		apiViewModel.getFBList(title, genre).observe(this) {
 			data->
@@ -58,7 +60,7 @@ class ItemPage : AppCompatActivity() {
 			itemBinding.starRateTextBig.text = data.rating
 			itemBinding.publisher.text = data.publisher
 			itemBinding.about.text = data.about
-			itemBinding.price.text = data.price
+			itemBinding.buy.text = "₹${data.price}"
 			Glide.with(itemBinding.root.context)
 				.load(data.coverpage)
 				.into(itemBinding.imageCover)
@@ -108,6 +110,7 @@ class ItemPage : AppCompatActivity() {
 			Log.i("rate", data.rating)
 			Log.i("about", data.about)
 		}
+
 
 	}
 	}

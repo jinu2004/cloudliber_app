@@ -100,7 +100,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:maxWidth="200dp"
-                        android:maxHeight="30dp"
                         android:text="welcome to the world of books"
                         android:textColor="#656262"
                         android:textSize="12sp"

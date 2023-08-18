@@ -1,11 +1,9 @@
 package come.jinu.cloudlibre
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -24,8 +22,6 @@ import come.jinu.cloudlibre.adaptersAndDataclass.catogery
 import come.jinu.cloudlibre.apiCloudeliber.ApiClass
 import come.jinu.cloudlibre.apiCloudeliber.ApiviewModel
 import come.jinu.cloudlibre.databinding.ActivityMainBinding
-import come.jinu.cloudlibre.roomdatabase.RoomBookData
-import come.jinu.cloudlibre.roomdatabase.RoomBookRecyclerAdapter
 import come.jinu.cloudlibre.roomdatabase.RoomViewModel
 import java.util.*
 
@@ -75,6 +71,12 @@ class MainActivity : AppCompatActivity() {
 
 			apiViewModel.getBookList().observe(this@MainActivity) { datas ->
 				val adapter = ApiAdapter(datas)
+
+				for(i in datas){
+					val sub = i.subgenre
+					println(sub)
+				}
+
 				binding.card1Recycler.layoutManager =
 					LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
 				binding.card1Recycler.adapter = adapter
@@ -146,38 +148,6 @@ class MainActivity : AppCompatActivity() {
 	override fun onBackPressed() {
 		super.onBackPressed()
 		finishAffinity()
-	}
-
-
-	@Suppress("DEPRECATION")
-	@SuppressLint("SetTextI18n")
-	private fun cards(heading: TextView,recyclerView: RecyclerView,tittle: String,category:String)
-	{
-		heading.text=tittle
-		recyclerView.layoutManager = LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)
-		roomViewModel.getCategory(category).observe(this) { data ->
-			val adapter = RoomBookRecyclerAdapter(data)
-			recyclerView.adapter = adapter
-
-			adapter.setOnItemClickListener(object: RoomBookRecyclerAdapter.OnItemClickListener{
-				override fun onItemClick(position: Int) {
-					val intent = Intent(this@MainActivity,ItemPage::class.java)
-					intent.putExtra("position",position)
-					startActivity(intent)
-				}
-
-			})
-
-		}
-
-
-	}
-
-	private fun insertData(category: String){
-		val newItem = RoomBookData(null,"Life","jinu",
-			"","",100,R.drawable.bookshop_1,"",2.3,category)
-		roomViewModel.addNewItem(newItem)
-
 	}
 
 }
