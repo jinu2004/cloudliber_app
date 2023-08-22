@@ -2,8 +2,10 @@ package come.jinu.cloudlibre
 
 import android.content.Intent
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
@@ -46,14 +48,30 @@ class MainActivity : AppCompatActivity() {
 
 
 		val imageList = ArrayList<SlideModel>()
-		imageList.add(SlideModel("https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029_1280.jpg",
-			""))
-		imageList.add(SlideModel("https://cdn.pixabay.com/photo/2016/09/10/17/18/book-1659717_640.jpg",
-			""))
-		imageList.add(SlideModel("https://cdn.pixabay.com/photo/2019/05/14/21/50/storytelling-4203628_640.jpg",
-			""))
-		imageList.add(SlideModel("https://cdn.pixabay.com/photo/2016/08/24/16/20/books-1617327_640.jpg",
-			""))
+		imageList.add(
+			SlideModel(
+				"https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029_1280.jpg",
+				""
+			)
+		)
+		imageList.add(
+			SlideModel(
+				"https://cdn.pixabay.com/photo/2016/09/10/17/18/book-1659717_640.jpg",
+				""
+			)
+		)
+		imageList.add(
+			SlideModel(
+				"https://cdn.pixabay.com/photo/2019/05/14/21/50/storytelling-4203628_640.jpg",
+				""
+			)
+		)
+		imageList.add(
+			SlideModel(
+				"https://cdn.pixabay.com/photo/2016/08/24/16/20/books-1617327_640.jpg",
+				""
+			)
+		)
 		binding.ads.setImageList(imageList, scaleType = ScaleTypes.FIT)
 		binding.ads.setSlideAnimation(AnimationTypes.DEPTH_SLIDE)//depth slide // GAtE//
 		binding.ads.startSliding(3000)
@@ -66,52 +84,59 @@ class MainActivity : AppCompatActivity() {
 		category.add(catogery("history"))
 		category.add(catogery("chemistry"))
 		val adapter = HorizontalCatAdapter(category)
-		binding.categoryRecycler.layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
+		binding.categoryRecycler.layoutManager =
+			LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
 		binding.categoryRecycler.adapter = adapter
+		adapter.setOnClickListener(object :HorizontalCatAdapter.OnClickListener{
+			@RequiresApi(Build.VERSION_CODES.Q)
+			override fun onClick(position: Int, data: catogery) {
+			}
+		})
 
-			apiViewModel.getBookList().observe(this@MainActivity) { datas ->
-				val adapter = ApiAdapter(datas)
 
-				for(i in datas){
-					val sub = i.subgenre
-					println(sub)
+		apiViewModel.getBookList().observe(this@MainActivity) { datas ->
+			@Suppress("NAME_SHADOWING") val adapter = ApiAdapter(datas)
+
+			for (i in datas) {
+				val sub = i.subgenre
+				println(sub)
+			}
+
+			binding.card1Recycler.layoutManager =
+				LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
+			binding.card1Recycler.adapter = adapter
+			adapter.setOnClickListener(object : ApiAdapter.OnClickListener {
+				override fun onClick(position: Int, data: ApiClass) {
+					val intent = Intent(this@MainActivity, ItemPage::class.java)
+					intent.putExtra("title", data.title)
+					intent.putExtra("genre", "fiction")
+					startActivity(intent)
+					Log.e("msg", data.subgenre)
+					Log.e("msg", data.title)
 				}
 
-				binding.card1Recycler.layoutManager =
-					LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
-				binding.card1Recycler.adapter = adapter
-				adapter.setOnClickListener(object : ApiAdapter.OnClickListener {
-					override fun onClick(position: Int, data: ApiClass) {
-						val intent = Intent(this@MainActivity, ItemPage::class.java)
-						intent.putExtra("title", data.title)
-						intent.putExtra("genre", "fiction")
-						startActivity(intent)
-						Log.e("msg", data.subgenre)
-						Log.e("msg", data.title)
-					}
+			})
 
-				})
+		}
 
-			}
+		apiViewModel.getBookListN().observe(this@MainActivity) { datas ->
+			@Suppress("NAME_SHADOWING") val adapter = ApiAdapter(datas)
+			binding.card2Recycler.layoutManager =
+				LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
+			binding.card2Recycler.adapter = adapter
+			adapter.setOnClickListener(object : ApiAdapter.OnClickListener {
+				override fun onClick(position: Int, data: ApiClass) {
+					val intent = Intent(this@MainActivity, ItemPage::class.java)
+					intent.putExtra("title", data.title)
+					intent.putExtra("genre", "nonfiction")
+					startActivity(intent)
+					Log.e("msg", data.subgenre)
+					Log.e("msg", data.title)
+				}
 
-			apiViewModel.getBookListN().observe(this@MainActivity) { datas ->
-				val adapter = ApiAdapter(datas)
-				binding.card2Recycler.layoutManager =
-					LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
-				binding.card2Recycler.adapter = adapter
-				adapter.setOnClickListener(object : ApiAdapter.OnClickListener {
-					override fun onClick(position: Int, data: ApiClass) {
-						val intent = Intent(this@MainActivity, ItemPage::class.java)
-						intent.putExtra("title", data.title)
-						intent.putExtra("genre", "nonfiction")
-						startActivity(intent)
-						Log.e("msg", data.subgenre)
-						Log.e("msg", data.title)
-					}
+			})
 
-				})
-
-			}
+		}
 
 
 		if (auth.currentUser?.photoUrl == null) {
@@ -124,22 +149,14 @@ class MainActivity : AppCompatActivity() {
 	}
 
 
-
-
-
-
 	//////////////////////////////////  onCreate function ends here  //////////
-
-
-
-
 
 
 	public override fun onStart() {
 		super.onStart()
 		val currentUser = auth.currentUser
 		if (currentUser == null) {
-			startActivity(Intent(this,SigninActivity::class.java))
+			startActivity(Intent(this, SigninActivity::class.java))
 		}
 	}
 

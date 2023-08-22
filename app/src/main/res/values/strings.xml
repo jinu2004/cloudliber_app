@@ -5,4 +5,5 @@
         Computer science spans theoretical disciplines (such as algorithms, theory of computation, and information theory)
         to applied disciplines (including the design and implementation of hardware and software).</string>
     <string name="BASE_URL">https://cloudeliber-app.onrender.com/api/android/fetchFulldata</string>
+    <string name="science">science</string>
 </resources>

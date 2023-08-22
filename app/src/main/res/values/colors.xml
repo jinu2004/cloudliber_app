@@ -11,5 +11,6 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="window">#D7000000</color>
     <color name="orange_200">#FF725E</color>
+    <color name="grey_100">#2D2C2C</color>
     <color name="yellow">#FFFA00</color>
 </resources>

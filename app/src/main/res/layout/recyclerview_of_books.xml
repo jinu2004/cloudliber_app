@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#00DF0000"
+    android:background="#000"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
@@ -54,7 +54,7 @@
                     android:layout_marginStart="10dp"
                     android:text="books"
                     android:textColor="@color/white"
-                    app:fontFamily="@font/belanosima_bold"
+                    app:fontFamily="@font/belanosima_regular"
                     app:layout_constraintBottom_toTopOf="@+id/stare_rate_recycler"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -70,7 +70,7 @@
                     android:maxHeight="20dp"
                     android:text="5.0"
                     android:textColor="@color/white"
-                    app:fontFamily="@font/belanosima_bold"
+                    app:fontFamily="@font/belanosima_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -105,7 +105,7 @@
                     android:layout_marginEnd="10dp"
                     android:text="440"
                     android:textColor="@color/white"
-                    app:fontFamily="@font/belanosima_bold"
+                    app:fontFamily="@font/belanosima_regular"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:ignore="HardcodedText" />

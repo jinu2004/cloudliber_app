@@ -1,6 +1,7 @@
 package come.jinu.cloudlibre.adaptersAndDataclass
 
-import android.graphics.Color
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -16,17 +17,25 @@ class HorizontalCatAdapter(private val cat:List<catogery>):RecyclerView.Adapter<
 		return ViewHolder(view)
 	}
 
+	@SuppressLint("ClickableViewAccessibility", "NotifyDataSetChanged", "ResourceAsColor")
 	override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 		val datas = cat[position]
-		if (position == 0){
-			holder.viewBinding.stroke.setCardBackgroundColor(Color.parseColor("#FF725E"))
-		}
-		holder.viewBinding.title.text = datas.category
-		holder.itemView.setOnClickListener {
+		var currentItem = 0
+		holder.viewBinding.text.text = datas.category
+		holder.viewBinding.text.setOnClickListener {
 			if (onClickListener != null) {
 				onClickListener!!.onClick(position,datas)
+				currentItem = position
+				Log.d("fuck",currentItem.toString())
+				notifyDataSetChanged()
 			}
 		}
+		if (currentItem == position) holder.viewBinding.stroke.setCardBackgroundColor(0xFF725E)
+		else holder.viewBinding.stroke.setCardBackgroundColor(0x2D2C2C)
+
+
+
+
 	}
 
 	override fun getItemCount(): Int {
