@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -87,9 +88,10 @@ class MainActivity : AppCompatActivity() {
 		binding.categoryRecycler.layoutManager =
 			LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
 		binding.categoryRecycler.adapter = adapter
-		adapter.setOnClickListener(object :HorizontalCatAdapter.OnClickListener{
+		adapter.setOnClickListener(object : HorizontalCatAdapter.OnClickListener {
 			@RequiresApi(Build.VERSION_CODES.Q)
 			override fun onClick(position: Int, data: catogery) {
+				Toast.makeText(baseContext, "fuck", Toast.LENGTH_SHORT).show()
 			}
 		})
 

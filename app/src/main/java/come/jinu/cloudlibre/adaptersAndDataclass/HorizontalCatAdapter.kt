@@ -22,13 +22,14 @@ class HorizontalCatAdapter(private val cat:List<catogery>):RecyclerView.Adapter<
 		val datas = cat[position]
 		var currentItem = 0
 		holder.viewBinding.text.text = datas.category
-		holder.viewBinding.text.setOnClickListener {
+		holder.viewBinding.stroke.setOnClickListener {
 			if (onClickListener != null) {
 				onClickListener!!.onClick(position,datas)
-				currentItem = position
-				Log.d("fuck",currentItem.toString())
 				notifyDataSetChanged()
 			}
+
+			currentItem = position
+			Log.d("fuck",currentItem.toString())
 		}
 		if (currentItem == position) holder.viewBinding.stroke.setCardBackgroundColor(0xFF725E)
 		else holder.viewBinding.stroke.setCardBackgroundColor(0x2D2C2C)
