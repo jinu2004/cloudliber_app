@@ -1,5 +1,6 @@
 package come.jinu.cloudlibre.apiCloudeliber
 
+
 data class ApiClass(
     val coverpage: String,
     val price: String,

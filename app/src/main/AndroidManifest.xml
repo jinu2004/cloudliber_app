@@ -15,7 +15,10 @@
         android:theme="@style/Theme.CloudLibre"
         tools:targetApi="33">
         <activity
-            android:name=".Expand_view_of_data"
+            android:name=".FullCategories"
+            android:exported="false" />
+        <activity
+            android:name=".ExpandData"
             android:exported="false" />
         <activity
             android:name=".AboutItem"

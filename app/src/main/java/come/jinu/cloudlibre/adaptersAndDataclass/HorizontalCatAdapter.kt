@@ -9,7 +9,7 @@ import come.jinu.cloudlibre.databinding.CatRecyclerViewBinding
 
 class HorizontalCatAdapter(private val cat:List<catogery>):RecyclerView.Adapter<HorizontalCatAdapter.ViewHolder>() {
 	inner class ViewHolder(val viewBinding: CatRecyclerViewBinding):RecyclerView.ViewHolder(viewBinding.root)
-	private var onClickListener: HorizontalCatAdapter.OnClickListener?=null
+	private var onClickListener: OnClickListener?=null
 
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

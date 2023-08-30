@@ -1,3 +1,5 @@
+@file:Suppress("NAME_SHADOWING")
+
 package come.jinu.cloudlibre
 
 import android.content.Intent
@@ -5,7 +7,6 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -28,6 +29,7 @@ import come.jinu.cloudlibre.databinding.ActivityMainBinding
 import come.jinu.cloudlibre.roomdatabase.RoomViewModel
 import java.util.*
 
+
 class MainActivity : AppCompatActivity() {
 	private lateinit var auth: FirebaseAuth
 	private lateinit var roomViewModel: RoomViewModel
@@ -47,30 +49,28 @@ class MainActivity : AppCompatActivity() {
 		roomViewModel = ViewModelProvider(this)[RoomViewModel::class.java]
 		apiViewModel = ViewModelProvider(this)[ApiviewModel::class.java]
 
+		val dataToPass = ArrayList<ApiClass>()
+
 
 		val imageList = ArrayList<SlideModel>()
 		imageList.add(
 			SlideModel(
-				"https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029_1280.jpg",
-				""
+				"https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029_1280.jpg", ""
 			)
 		)
 		imageList.add(
 			SlideModel(
-				"https://cdn.pixabay.com/photo/2016/09/10/17/18/book-1659717_640.jpg",
-				""
+				"https://cdn.pixabay.com/photo/2016/09/10/17/18/book-1659717_640.jpg", ""
 			)
 		)
 		imageList.add(
 			SlideModel(
-				"https://cdn.pixabay.com/photo/2019/05/14/21/50/storytelling-4203628_640.jpg",
-				""
+				"https://cdn.pixabay.com/photo/2019/05/14/21/50/storytelling-4203628_640.jpg", ""
 			)
 		)
 		imageList.add(
 			SlideModel(
-				"https://cdn.pixabay.com/photo/2016/08/24/16/20/books-1617327_640.jpg",
-				""
+				"https://cdn.pixabay.com/photo/2016/08/24/16/20/books-1617327_640.jpg", ""
 			)
 		)
 		binding.ads.setImageList(imageList, scaleType = ScaleTypes.FIT)
@@ -79,11 +79,10 @@ class MainActivity : AppCompatActivity() {
 		binding.username.text = auth.currentUser?.displayName
 
 		val category = ArrayList<catogery>()
-		category.add(catogery("all"))
-		category.add(catogery("stories"))
-		category.add(catogery("science"))
-		category.add(catogery("history"))
-		category.add(catogery("chemistry"))
+		category.add(catogery("Mystery"))
+		category.add(catogery("Adventure"))
+		category.add(catogery("Thriller"))
+		category.add(catogery("Action"))
 		val adapter = HorizontalCatAdapter(category)
 		binding.categoryRecycler.layoutManager =
 			LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
@@ -91,19 +90,16 @@ class MainActivity : AppCompatActivity() {
 		adapter.setOnClickListener(object : HorizontalCatAdapter.OnClickListener {
 			@RequiresApi(Build.VERSION_CODES.Q)
 			override fun onClick(position: Int, data: catogery) {
-				Toast.makeText(baseContext, "fuck", Toast.LENGTH_SHORT).show()
+				val intent = Intent(this@MainActivity, ExpandData::class.java)
+				intent.putExtra("category",category[position].category)
+				startActivity(intent)
 			}
 		})
 
 
 		apiViewModel.getBookList().observe(this@MainActivity) { datas ->
-			@Suppress("NAME_SHADOWING") val adapter = ApiAdapter(datas)
-
-			for (i in datas) {
-				val sub = i.subgenre
-				println(sub)
-			}
-
+			dataToPass+=datas
+			val adapter = ApiAdapter(datas)
 			binding.card1Recycler.layoutManager =
 				LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
 			binding.card1Recycler.adapter = adapter
@@ -122,7 +118,7 @@ class MainActivity : AppCompatActivity() {
 		}
 
 		apiViewModel.getBookListN().observe(this@MainActivity) { datas ->
-			@Suppress("NAME_SHADOWING") val adapter = ApiAdapter(datas)
+			val adapter = ApiAdapter(datas)
 			binding.card2Recycler.layoutManager =
 				LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)
 			binding.card2Recycler.adapter = adapter
@@ -148,10 +144,11 @@ class MainActivity : AppCompatActivity() {
 			binding.profilePic.setBackgroundColor(color)
 		}
 
+
 	}
 
 
-	//////////////////////////////////  onCreate function ends here  //////////
+	//////////////////////  onCreate function ends here  ///////////////////
 
 
 	public override fun onStart() {

@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
-import java.util.*
+import java.util.Timer
 import kotlin.concurrent.scheduleAtFixedRate
 
 class ApiviewModel:ViewModel() {
@@ -16,7 +16,7 @@ class ApiviewModel:ViewModel() {
 
 	fun getBookList():LiveData<List<ApiClass>>{
 		val _booksList = MutableLiveData<List<ApiClass>>()
-		Timer().scheduleAtFixedRate(0,30000) {
+		Timer().scheduleAtFixedRate(0,300000) {
 			viewModelScope.launch {
 				try {
 					val response = api.getFictionData()
@@ -36,7 +36,7 @@ class ApiviewModel:ViewModel() {
 	}
 	fun getBookListN():LiveData<List<ApiClass>>{
 		val _booksList = MutableLiveData<List<ApiClass>>()
-		Timer().scheduleAtFixedRate(0,30000) {
+		Timer().scheduleAtFixedRate(0,300000) {
 			viewModelScope.launch {
 				try {
 					val response = api.getNonFictionData()
