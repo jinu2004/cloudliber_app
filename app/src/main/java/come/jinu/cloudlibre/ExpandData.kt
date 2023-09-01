@@ -27,18 +27,32 @@ class ExpandData : AppCompatActivity() {
 		window.navigationBarColor = ContextCompat.getColor(this, R.color.black)
 		apiViewModel = ViewModelProvider(this)[ApiviewModel::class.java]
 		val category = intent.getStringExtra("category")
+		val fictionOrNon = intent.getBooleanExtra("fiction_nonFiction",true)
 
 		binding.toolbar.title = category
 		binding.toolbar.setNavigationOnClickListener {
 			startActivity(Intent(this,MainActivity::class.java))
 		}
-		apiViewModel.getBookList().observe(this) {
-				items ->data.addAll(items)
+
+		if (fictionOrNon) {
+			apiViewModel.getBookList().observe(this) { items ->
+				data.addAll(items)
 				val filteredList = data.filter { it.subgenre == category }
 				val adapter = ApiAdapter(filteredList)
-				binding.listview.layoutManager  = GridLayoutManager(this,3)
+				binding.listview.layoutManager = GridLayoutManager(this, 3)
 				binding.listview.adapter = adapter
+			}
 		}
+		else{
+			apiViewModel.getBookListN().observe(this) { items ->
+				data.addAll(items)
+				val filteredList = data.filter { it.subgenre == category }
+				val adapter = ApiAdapter(filteredList)
+				binding.listview.layoutManager = GridLayoutManager(this, 3)
+				binding.listview.adapter = adapter
+			}
+		}
+
 
 	}
 }

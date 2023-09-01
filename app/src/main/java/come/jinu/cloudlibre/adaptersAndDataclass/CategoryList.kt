@@ -1,3 +1,3 @@
 package come.jinu.cloudlibre.adaptersAndDataclass
 
-data class CategoryList(val title:String, val image:Int)
+data class CategoryList(val title:String, val image:Int,val genre:String)
