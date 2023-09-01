@@ -1,6 +1,5 @@
 package come.jinu.cloudlibre
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -31,7 +30,7 @@ class ExpandData : AppCompatActivity() {
 
 		binding.toolbar.title = category
 		binding.toolbar.setNavigationOnClickListener {
-			startActivity(Intent(this,MainActivity::class.java))
+			finish()
 		}
 
 		if (fictionOrNon) {
