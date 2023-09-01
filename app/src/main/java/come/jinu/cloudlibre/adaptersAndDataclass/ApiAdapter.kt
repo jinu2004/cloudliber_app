@@ -1,10 +1,9 @@
 package come.jinu.cloudlibre.adaptersAndDataclass
 
 import android.annotation.SuppressLint
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import come.jinu.cloudlibre.apiCloudeliber.ApiClass
@@ -24,6 +23,8 @@ class ApiAdapter(private val data:List<ApiClass>):RecyclerView.Adapter<ApiAdapte
 	override fun onBindViewHolder(holder: ApiClassViewHolder, position: Int) {
 		val datas = data[position]
 		holder.binding.apply {
+			titleOfBookRecycler.maxLines = 20
+			titleOfBookRecycler.ellipsize = TextUtils.TruncateAt.END
 			titleOfBookRecycler.text = datas.title
 			price.text = datas.price
 			stareRateRecycler.text = datas.rating

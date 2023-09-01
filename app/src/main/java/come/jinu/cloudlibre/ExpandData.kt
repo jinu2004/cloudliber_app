@@ -1,6 +1,8 @@
 package come.jinu.cloudlibre
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
@@ -40,6 +42,16 @@ class ExpandData : AppCompatActivity() {
 				val adapter = ApiAdapter(filteredList)
 				binding.listview.layoutManager = GridLayoutManager(this, 3)
 				binding.listview.adapter = adapter
+				adapter.setOnClickListener(object :ApiAdapter.OnClickListener{
+					override fun onClick(position: Int, data: ApiClass) {
+						val intent = Intent(this@ExpandData, ItemPage::class.java)
+						intent.putExtra("title", data.title)
+						intent.putExtra("genre", "fiction")
+						startActivity(intent)
+						Log.e("msg", data.subgenre)
+						Log.e("msg", data.title)
+					}
+				})
 			}
 		}
 		else{
@@ -49,6 +61,16 @@ class ExpandData : AppCompatActivity() {
 				val adapter = ApiAdapter(filteredList)
 				binding.listview.layoutManager = GridLayoutManager(this, 3)
 				binding.listview.adapter = adapter
+				adapter.setOnClickListener(object :ApiAdapter.OnClickListener{
+					override fun onClick(position: Int, data: ApiClass) {
+						val intent = Intent(this@ExpandData, ItemPage::class.java)
+						intent.putExtra("title", data.title)
+						intent.putExtra("genre", "nonfiction")
+						startActivity(intent)
+						Log.e("msg", data.subgenre)
+						Log.e("msg", data.title)
+					}
+				})
 			}
 		}
 
