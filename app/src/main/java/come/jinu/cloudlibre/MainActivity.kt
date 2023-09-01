@@ -49,9 +49,6 @@ class MainActivity : AppCompatActivity() {
 		roomViewModel = ViewModelProvider(this)[RoomViewModel::class.java]
 		apiViewModel = ViewModelProvider(this)[ApiviewModel::class.java]
 
-		val dataToPass = ArrayList<ApiClass>()
-
-
 		val imageList = ArrayList<SlideModel>()
 		imageList.add(
 			SlideModel(
@@ -89,7 +86,7 @@ class MainActivity : AppCompatActivity() {
 		binding.categoryRecycler.adapter = adapter
 		adapter.setOnClickListener(object : HorizontalCatAdapter.OnClickListener {
 			@RequiresApi(Build.VERSION_CODES.Q)
-			override fun onClick(position: Int, data: catogery) {
+			override fun onClick(position: Int) {
 				val intent = Intent(this@MainActivity, ExpandData::class.java)
 				intent.putExtra("category",category[position].category)
 				startActivity(intent)
@@ -98,7 +95,6 @@ class MainActivity : AppCompatActivity() {
 
 
 		apiViewModel.getBookList().observe(this@MainActivity) { datas ->
-			dataToPass+=datas
 			val adapter = ApiAdapter(datas)
 			binding.card1Recycler.layoutManager =
 				LinearLayoutManager(this@MainActivity, RecyclerView.HORIZONTAL, false)

@@ -24,7 +24,7 @@ class HorizontalCatAdapter(private val cat:List<catogery>):RecyclerView.Adapter<
 		holder.viewBinding.text.text = datas.category
 		holder.viewBinding.stroke.setOnClickListener {
 			if (onClickListener != null) {
-				onClickListener!!.onClick(position,datas)
+				onClickListener!!.onClick(position)
 				notifyDataSetChanged()
 			}
 
@@ -48,6 +48,6 @@ class HorizontalCatAdapter(private val cat:List<catogery>):RecyclerView.Adapter<
 
 	// onClickListener Interface
 	interface OnClickListener {
-		fun onClick(position: Int,data: catogery)
+		fun onClick(position: Int)
 	}
 }

@@ -3,6 +3,7 @@ package come.jinu.cloudlibre
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import come.jinu.cloudlibre.adaptersAndDataclass.ApiAdapter
@@ -17,10 +18,13 @@ class ExpandData : AppCompatActivity() {
 	private var data = ArrayList<ApiClass>()
 
 
+
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		binding = ActivityExpandViewOfDataBinding.inflate(layoutInflater)
 		setContentView(binding.root)
+		window.statusBarColor = ContextCompat.getColor(this, R.color.black)
+		window.navigationBarColor = ContextCompat.getColor(this, R.color.black)
 		apiViewModel = ViewModelProvider(this)[ApiviewModel::class.java]
 		val category = intent.getStringExtra("category")
 

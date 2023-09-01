@@ -6,8 +6,8 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:layout_marginStart="20dp"
-        android:layout_width="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
         android:maxWidth="200dp"
         app:cardBackgroundColor="@color/grey_100"
         app:cardCornerRadius="30dp"
@@ -22,10 +22,11 @@
 
             <ImageView
                 android:id="@+id/icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="15dp"
                 android:contentDescription=" "
+                android:scaleType="centerCrop"
                 android:src="@drawable/twitter_svgrepo_com"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -40,10 +41,10 @@
                 android:layout_margin="20dp"
                 android:fontFamily="@font/belanosima_regular"
                 android:text="@string/mystery"
+
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/icon"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.523" />
