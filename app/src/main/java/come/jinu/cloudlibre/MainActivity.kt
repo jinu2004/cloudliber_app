@@ -145,7 +145,17 @@ class MainActivity : AppCompatActivity() {
 		}
 
 
+
+
+		binding.textView4.setOnClickListener {
+			startActivity(Intent(this,FullCategories::class.java))
+		}
+
+
 	}
+
+
+
 
 
 	//////////////////////  onCreate function ends here  ///////////////////
