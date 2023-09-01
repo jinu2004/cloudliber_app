@@ -5,15 +5,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import come.jinu.cloudlibre.databinding.CatRecyclerViewBinding
+import come.jinu.cloudlibre.databinding.HorizontalCategorySelectorItemBinding
 
 class HorizontalCatAdapter(private val cat:List<catogery>):RecyclerView.Adapter<HorizontalCatAdapter.ViewHolder>() {
-	inner class ViewHolder(val viewBinding: CatRecyclerViewBinding):RecyclerView.ViewHolder(viewBinding.root)
+	inner class ViewHolder(val viewBinding: HorizontalCategorySelectorItemBinding):RecyclerView.ViewHolder(viewBinding.root)
 	private var onClickListener: OnClickListener?=null
 
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-		val view =  CatRecyclerViewBinding.inflate(LayoutInflater.from(parent.context))
+		val view =  HorizontalCategorySelectorItemBinding.inflate(LayoutInflater.from(parent.context))
 		return ViewHolder(view)
 	}
 

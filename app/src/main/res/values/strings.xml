@@ -6,4 +6,5 @@
         to applied disciplines (including the design and implementation of hardware and software).</string>
     <string name="BASE_URL">https://cloudeliber-app.onrender.com/api/android/fetchFulldata</string>
     <string name="science">science</string>
+    <string name="mystery">Mystery</string>
 </resources>
